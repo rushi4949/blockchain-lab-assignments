@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPFS Storage DApp</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
 
+<div class="container">
+
+    <div class="header">
+        <div class="logo">&#128193;</div>
+        <h1>Decentralized File Storage</h1>
+        <p class="subtitle">Upload and retrieve files using IPFS</p>
+        <button class="secondary" onclick="promptForCredentials()">Enter API Credentials</button>
+        <div id="credentials-status"></div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon upload-icon">&#8593;</div>
+            <h3>Upload File</h3>
+        </div>
+        
+        <div class="file-input-wrapper">
+            <input type="file" id="fileInput">
+            <label for="fileInput" class="file-label" id="fileLabel">
+                <span>&#128194;</span>
+                <span>Choose a file or drag it here</span>
+            </label>
+        </div>
+        
+        <button class="primary" onclick="uploadFile()">
+            <span>&#8593;</span> Upload to IPFS
+        </button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="card-icon retrieve-icon">&#8595;</div>
+            <h3>Retrieve File</h3>
+        </div>
+        
+        <input type="text" id="cidInput" class="text-input" placeholder="Enter CID here">
+        
+        <button class="secondary" onclick="getFile()">
+            <span>&#128269;</span> Fetch File
+        </button>
+
+        <iframe id="preview"></iframe>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
